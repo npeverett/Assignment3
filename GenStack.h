@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ public:
 
 private:
   T* myStack;
+  T* temp;
   int top;
   int stackSize;
 
@@ -59,7 +61,16 @@ void GenStack<T>::push(T data)
 {
   if (isFull())
   {
-    cout << "Stack Cannot Hold Any More Data" << endl; //for now
+    cout << "Allocating Additional Storage..." << endl; //for now
+    stackSize *= 2;
+    temp = new T[stackSize];
+    for (int i=0; i < stackSize-1; ++i)
+    {
+      temp[i] = myStack[i];
+    }
+    delete[] myStack;
+    myStack = temp;
+
   }
   else
   {
