@@ -9,10 +9,9 @@ class Syntax
 public:
   Syntax();
   ~Syntax();
-  int checkSyntax();
+  int checkSyntax(string filename);
 
 private:
-  //GenStack<char> newStack(8);
   const char LCBracket = '{';
   const char RCBracket = '}';
   const char LSBracket = '[';

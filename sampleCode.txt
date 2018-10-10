@@ -1,4 +1,4 @@
 for (int i=0; i < myArray.length; i++)
-{
-	this.name = name;
+class{
+method{}
 }

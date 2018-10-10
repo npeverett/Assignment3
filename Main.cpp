@@ -5,30 +5,24 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
 {
-  GenStack<int> newStack(2);
   FileRead fr;
   string filename;
+  Syntax s;
 
-  cout << "Welcome To Syntax Checker" << endl;
-  cout << " " << endl;
-  cout << "Enter the file name: ";
+  if (argv[1] == NULL)
+  {
+    cout << "Please attach a file name when compiling." << endl;
+  }
 
-  cin >> filename;
-  if(fr.fileGood(filename) == false)
+  if(fr.fileGood(argv[1]) == false)
   {
     cout << "Could not locate given file. Please try again." << endl;
     return 1;
   }
-  cout << fr.getFileContents(filename) << endl;
-
-  newStack.push(2);
-  newStack.push(4);
-  cout << newStack.peek() << endl;
-  cout << newStack.isFull() << " " << newStack.size() << endl;
-  newStack.push(8);
-  cout<< newStack.isFull() << " " << newStack.size() << endl;
+  fr.getFileContents(argv[1]);
+  s.checkSyntax(argv[1]);
 
   return 0;
 }

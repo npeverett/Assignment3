@@ -14,7 +14,7 @@ FileRead::FileRead()
 //Class Destructor
 FileRead::~FileRead()
 {
-  cout << "File Reader Destroyed" << endl;
+
 }
 
 bool FileRead::fileGood(string filename)
@@ -35,7 +35,6 @@ bool FileRead::fileGood(string filename)
 
 string FileRead::getFileContents(string filename)
 {
-
   stringstream strStream;
   string line = "";
 
@@ -45,5 +44,10 @@ string FileRead::getFileContents(string filename)
   string temp((istreambuf_iterator<char>(fin)), istreambuf_iterator<char>());
   fileContents = temp;
 
+  return fileContents;
+}
+
+string FileRead::getFileString()
+{
   return fileContents;
 }

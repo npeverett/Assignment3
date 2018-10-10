@@ -107,7 +107,8 @@ T GenStack<T>::peek()
 template <class T>
 int GenStack<T>::size()
 {
-  return (top + 1);
+  //top + 1
+  return (stackSize);
 }
 //Method To Check If Stack Is Full
 template <class T>
