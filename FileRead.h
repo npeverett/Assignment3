@@ -13,6 +13,7 @@ public:
   bool fileGood(string filename);
   string getFileContents(string filename);
   string getFileString();
+  int getNumChars();
 
 private:
   string fileContents;

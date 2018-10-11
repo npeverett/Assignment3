@@ -15,6 +15,7 @@ int main(int argc, char** argv)
   if (argv[1] == NULL)
   {
     cout << "Please attach a file name when compiling." << endl;
+    return 1;
   }
 
   //Check If File Is Readable and Exists
