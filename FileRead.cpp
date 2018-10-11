@@ -17,6 +17,7 @@ FileRead::~FileRead()
 
 }
 
+//Method To Check If File Exists/Can Be Read
 bool FileRead::fileGood(string filename)
 {
   ifstream fin;
@@ -33,6 +34,7 @@ bool FileRead::fileGood(string filename)
   return false;
 }
 
+//Method To Get File Contents To A String
 string FileRead::getFileContents(string filename)
 {
   stringstream strStream;
@@ -44,9 +46,13 @@ string FileRead::getFileContents(string filename)
   string temp((istreambuf_iterator<char>(fin)), istreambuf_iterator<char>());
   fileContents = temp;
 
+  //Character used in Syntax to locate end of file
+  fileContents += "/a";
+
   return fileContents;
 }
 
+//Getter For FileContent as String
 string FileRead::getFileString()
 {
   return fileContents;
