@@ -9,6 +9,7 @@ class Syntax
 public:
   Syntax();
   ~Syntax();
+
   int checkSyntax(string filename);
 
 private:

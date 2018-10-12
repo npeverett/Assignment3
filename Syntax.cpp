@@ -30,6 +30,7 @@ int Syntax::checkSyntax(string filename)
   string fileContents = fr.getFileString();
   int EOFIndex = fr.getNumChars();
 
+  //Local Variables
   bool error = false;
   int lineCount = 1;
 
@@ -38,6 +39,7 @@ int Syntax::checkSyntax(string filename)
     //Check If Char Is }
     if (ch == RCBracket)
     {
+
       if (newStack.isEmpty())
       {
         error = true;
@@ -47,14 +49,31 @@ int Syntax::checkSyntax(string filename)
       }
 
       //Pop, if not LCBracket, error
-      else if (newStack.pop() != LCBracket)
+      char poppedChar = newStack.pop();
+      if (poppedChar != LCBracket)
       {
         error = true;
-        cout << "Error found at line " << lineCount <<  "  "
+        if (poppedChar == LSBracket)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+                << "character ']' expected." << endl;
+          return 0;
+        }
+        else if (poppedChar == LParenthesis)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+                << "character ')' expected." << endl;
+          return 0;
+        }
+        else
+        {
+          cout << "Error found at line " << lineCount <<  "  "
               << "character '{' expected." << endl;
-        return 0;
+          return 0;
+        }
       }
     }
+
 
     //Check If Char Is {
     if (ch == LCBracket)
@@ -75,12 +94,28 @@ int Syntax::checkSyntax(string filename)
       }
 
       //Pop, if not LSBracket, error
-      if (newStack.pop() != LSBracket)
+      char poppedChar = newStack.pop();
+      if (poppedChar != LSBracket)
       {
         error = true;
-        cout << "Error found at line " << lineCount <<  "  "
-              << "character '[' expected." << endl;
-        return 0;
+        if (poppedChar == LCBracket)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+                << "character '}' expected." << endl;
+          return 0;
+        }
+        else if (poppedChar == LParenthesis)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+                << "character ')' expected." << endl;
+          return 0;
+        }
+        else
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+               << "character '[' expected." << endl;
+          return 0;
+        }
       }
     }
 
@@ -103,12 +138,29 @@ int Syntax::checkSyntax(string filename)
       }
 
       //Pop, if not LParenthesis, error
-      if (newStack.pop() != LParenthesis)
+      char poppedChar = newStack.pop();
+      if (poppedChar != LParenthesis)
       {
         error = true;
-        cout << "Error found at line " << lineCount <<  "  "
-              << "character '(' expected." << endl;
-        return 0;
+        if (poppedChar == LCBracket)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+               << "character '}' expected." << endl;
+          return 0;
+        }
+        else if (poppedChar == LSBracket)
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+               << "character ']' expected." << endl;
+          return 0;
+        }
+
+        else
+        {
+          cout << "Error found at line " << lineCount <<  "  "
+               << "character '(' expected." << endl;
+          return 0;
+        }
       }
     }
 

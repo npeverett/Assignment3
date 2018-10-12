@@ -22,6 +22,7 @@ bool FileRead::fileGood(string filename)
 {
   ifstream fin;
   fin.open(filename);
+
   if (fin.good())
   {
     return true;

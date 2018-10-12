@@ -7,6 +7,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+  //Global Class Objects
   FileRead fr;
   string filename;
   Syntax s;
