@@ -1,5 +1,13 @@
 # Assignment3
 
+Nathanael Everett
+2296318
+CPSC350 -03
+
+This program is a syntax chekcer for the (), {}, and [] characters. This program utilizes the Stack data structure and will return the line number of any errors in brackets. 
+
+Sources used in support of completing this project are:
+
 File Stream Iterator
 https://www.gamedev.net/forums/topic/353162-reading-a-whole-file-into-a-string-with-ifstream/
 
